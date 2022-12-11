@@ -7,14 +7,36 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:http/http.dart';
+import 'package:redux/redux.dart';
+import 'package:redux_epics/redux_epics.dart';
 import 'package:teme_flutter/main.dart';
+import 'package:teme_flutter/src/data/movie_api.dart';
+import 'package:teme_flutter/src/epics/app_epics.dart';
+import 'package:teme_flutter/src/models/index.dart';
+import 'package:teme_flutter/src/reducer/reducer.dart';
 
 /*import 'package:teme_flutter/main.dart';*/
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MoviesApp());
+    final Client client = Client();
+    final MovieApi movieApi = MovieApi(client);
+    final AppEpics epics = AppEpics(movieApi);
+
+    final Store<AppState> store = Store<AppState>(
+      reducer,
+      initialState: const AppState(),
+      middleware: <Middleware<AppState>>[
+        EpicMiddleware<AppState>(epics.epic),
+      ],
+    );
+    await tester.pumpWidget(
+      MoviesApp(
+        store: store,
+      ),
+    );
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
