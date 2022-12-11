@@ -16,15 +16,21 @@ Future<void> main() async {
   final MovieApi movieApi = MovieApi(client);
   final AppEpics epics = AppEpics(movieApi);
 
-  final Store<AppState> store =
-      Store<AppState>(reducer, initialState: const AppState(), middleware: <Middleware<AppState>>[
-    EpicMiddleware<AppState>(epics.epic),
-  ],)..dispatch(const GetMovies(1));
-  runApp( MoviesApp(store: store,));
+  final Store<AppState> store = Store<AppState>(
+    reducer,
+    initialState: const AppState(),
+    middleware: <Middleware<AppState>>[
+      EpicMiddleware<AppState>(epics.epic),
+    ],
+  )..dispatch(const GetMovies(1));
+  runApp(MoviesApp(
+    store: store,
+  ),);
 }
 
 class MoviesApp extends StatelessWidget {
   const MoviesApp({super.key, required this.store});
+
   final Store<AppState> store;
 
   @override

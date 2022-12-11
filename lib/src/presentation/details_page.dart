@@ -69,7 +69,10 @@ class DetailsPage extends StatelessWidget {
                                     Text(
                                       movie.rating.toString(),
                                       style: const TextStyle(
-                                          fontSize: 20, fontWeight: FontWeight.w700, color: Colors.yellow,),
+                                        fontSize: 20,
+                                        fontWeight: FontWeight.w700,
+                                        color: Colors.yellow,
+                                      ),
                                     ),
                                     const Icon(
                                       Icons.star,
@@ -105,13 +108,19 @@ class DetailsPage extends StatelessWidget {
                                       Text(
                                         torrent.size,
                                         style: const TextStyle(
-                                            color: Colors.green, fontSize: 20, fontWeight: FontWeight.w700,),
+                                          color: Colors.green,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w700,
+                                        ),
                                       ),
                                     for (final Torrent torrent in movie.torrents)
                                       Text(
                                         torrent.quality,
                                         style: const TextStyle(
-                                            color: Colors.green, fontSize: 20, fontWeight: FontWeight.w700,),
+                                          color: Colors.green,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w700,
+                                        ),
                                       ),
                                   ],
                                 ),
