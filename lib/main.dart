@@ -23,9 +23,11 @@ Future<void> main() async {
       EpicMiddleware<AppState>(epics.epic),
     ],
   )..dispatch(const GetMovies(1));
-  runApp(MoviesApp(
-    store: store,
-  ),);
+  runApp(
+    MoviesApp(
+      store: store,
+    ),
+  );
 }
 
 class MoviesApp extends StatelessWidget {

@@ -9,14 +9,12 @@ part of 'index.dart';
 _$Movie$ _$$Movie$FromJson(Map<String, dynamic> json) => _$Movie$(
       title: json['title'] as String,
       image: json['medium_cover_image'] as String,
-      genres:
-          (json['genres'] as List<dynamic>).map((dynamic e) => e as String).toList(),
+      genres: (json['genres'] as List<dynamic>).map((dynamic e) => e as String).toList(),
       year: json['year'] as int,
       rating: (json['rating'] as num).toDouble(),
       runtime: json['runtime'] as int,
-      torrents: (json['torrents'] as List<dynamic>)
-          .map((dynamic e) => Torrent.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      torrents:
+          (json['torrents'] as List<dynamic>).map((dynamic e) => Torrent.fromJson(e as Map<String, dynamic>)).toList(),
       description: json['description_full'] as String,
       largeImage: json['large_cover_image'] as String,
     );
@@ -39,26 +37,22 @@ _$Torrent$ _$$Torrent$FromJson(Map<String, dynamic> json) => _$Torrent$(
       size: json['size'] as String,
     );
 
-Map<String, dynamic> _$$Torrent$ToJson(_$Torrent$ instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$Torrent$ToJson(_$Torrent$ instance) => <String, dynamic>{
       'url': instance.url,
       'quality': instance.quality,
       'size': instance.size,
     };
 
 _$AppState$ _$$AppState$FromJson(Map<String, dynamic> json) => _$AppState$(
-      movies: (json['movies'] as List<dynamic>?)
-              ?.map((dynamic e) => Movie.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const <Movie>[],
+      movies:
+          (json['movies'] as List<dynamic>?)?.map((dynamic e) => Movie.fromJson(e as Map<String, dynamic>)).toList() ??
+              const <Movie>[],
       isLoading: json['isLoading'] as bool? ?? true,
-      selectedMovie: json['selectedMovie'] == null
-          ? null
-          : Movie.fromJson(json['selectedMovie'] as Map<String, dynamic>),
+      selectedMovie:
+          json['selectedMovie'] == null ? null : Movie.fromJson(json['selectedMovie'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$AppState$ToJson(_$AppState$ instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$AppState$ToJson(_$AppState$ instance) => <String, dynamic>{
       'movies': instance.movies,
       'isLoading': instance.isLoading,
       'selectedMovie': instance.selectedMovie,
