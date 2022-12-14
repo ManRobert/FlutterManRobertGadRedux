@@ -4,28 +4,35 @@ import 'package:redux/redux.dart';
 import 'package:teme_flutter/src/actions/index.dart';
 import 'package:teme_flutter/src/models/index.dart';
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
-  //final ScrollController _controller = ScrollController();
+  @override
+  State<Homepage> createState() => _HomePageState();
+}
 
-  /*@override
+class _HomePageState extends State<Homepage> {
+  final ScrollController _controller = ScrollController();
+
+  @override
   void initState() {
     super.initState();
     _controller.addListener(_onScroll);
-  }*/
+  }
 
-  /*void _onScroll() {
-    if (_controller.offset > _controller.position.maxScrollExtent - MediaQuery.of(context).size.height && !_isLoading) {
-      _getMovies();
+  void _onScroll() {
+    final Store<AppState> store = StoreProvider.of<AppState>(context);
+    if (_controller.offset > _controller.position.maxScrollExtent - MediaQuery.of(context).size.height &&
+        !store.state.isLoading) {
+      store.dispatch(GetMovies(store.state.page));
     }
-  }*/
+  }
 
-  /*@override
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,93 +50,115 @@ class Homepage extends StatelessWidget {
           ),
           body: Builder(
             builder: (BuildContext context) {
-              if (isLoading /*&& _page == 1*/) {
+              if (isLoading && store.state.page == 1) {
                 return const Center(
                   child: CircularProgressIndicator(
                     color: Colors.black,
                   ),
                 );
               }
-              return ListView.builder(
-                //controller: _controller,
-                itemCount: movies.length + 1,
-                itemBuilder: (BuildContext buildContext, int index) {
-                  if (movies.length == index) {
-                    if (isLoading) {
-                      return const Padding(
-                        padding: EdgeInsets.all(8),
-                        child: Center(
-                          child: CircularProgressIndicator(
-                            color: Colors.black,
-                          ),
-                        ),
-                      );
-                    } else {
-                      return const SizedBox.shrink();
-                    }
-                  }
-                  final Movie movie = movies[index];
-                  return GestureDetector(
-                    onTap: () {
-                      store.dispatch(SetSelectedMovie(movie));
-                      Navigator.pushNamed(
-                        context,
-                        '/movieDetails',
-                      );
-                    },
-                    child: Card(
-                      child: Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 25,
-                              horizontal: 8,
+              return RefreshIndicator(
+                onRefresh: () async {
+                  store
+                    ..dispatch(const WantRefresh())
+                    ..dispatch(const GetMovies(1));
+                  await store.onChange.where((AppState state) => !state.isLoading).first;
+                },
+                child: ListView.builder(
+                  controller: _controller,
+                  itemCount: movies.length + 1,
+                  itemBuilder: (BuildContext buildContext, int index) {
+                    if (movies.length == index) {
+                      if (isLoading) {
+                        return const Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.black,
                             ),
-                            child: Container(
-                              alignment: Alignment.topCenter,
-                              width: MediaQuery.of(context).size.width / 1.3,
-                              height: MediaQuery.of(context).size.height / 1.5,
-                              decoration: BoxDecoration(
-                                boxShadow: const <BoxShadow>[
-                                  BoxShadow(
-                                    blurRadius: 25,
+                          ),
+                        );
+                      } else {
+                        return const SizedBox.shrink();
+                      }
+                    }
+                    final Movie movie = movies[index];
+                    final bool isLiked = state.liked.contains(movie.id);
+                    return GestureDetector(
+                      onTap: () {
+                        store.dispatch(SetSelectedMovie(movie));
+                        Navigator.pushNamed(
+                          context,
+                          '/movieDetails',
+                        );
+                      },
+                      child: Card(
+                        child: Column(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 25,
+                                horizontal: 8,
+                              ),
+                              child: Stack(
+                                children: <Widget>[
+                                  Container(
+                                    alignment: Alignment.topCenter,
+                                    width: MediaQuery.of(context).size.width / 1.3,
+                                    height: MediaQuery.of(context).size.height / 1.5,
+                                    decoration: BoxDecoration(
+                                      boxShadow: const <BoxShadow>[
+                                        BoxShadow(
+                                          blurRadius: 25,
+                                        ),
+                                      ],
+                                      borderRadius: BorderRadius.circular(10),
+                                      image: DecorationImage(
+                                        image: NetworkImage(movie.image),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ),
+                                  IconButton(
+                                    onPressed: () {
+                                      store.dispatch(UpdateLike(movie.id, like: !isLiked));
+                                    },
+                                    icon: Icon(
+                                      isLiked ? Icons.favorite : Icons.favorite_border,
+                                    ),
+                                    color: Colors.red,
+                                  )
                                 ],
-                                borderRadius: BorderRadius.circular(10),
-                                image: DecorationImage(
-                                  image: NetworkImage(movie.image),
-                                  fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Text(
+                                movie.title,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Text(
-                              movie.title,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 22,
-                                fontWeight: FontWeight.bold,
+                            Padding(
+                              padding: const EdgeInsets.all(8),
+                              child: Text(
+                                movie.year.toString(),
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                ),
                               ),
-                            ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8),
-                            child: Text(
-                              movie.year.toString(),
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                              ),
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  );
-                },
+                    );
+                  },
+                ),
               );
             },
           ),

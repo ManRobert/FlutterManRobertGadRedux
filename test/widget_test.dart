@@ -10,6 +10,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:teme_flutter/main.dart';
 import 'package:teme_flutter/src/data/movie_api.dart';
 import 'package:teme_flutter/src/epics/app_epics.dart';
@@ -22,7 +23,9 @@ void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     final Client client = Client();
-    final MovieApi movieApi = MovieApi(client);
+    WidgetsFlutterBinding.ensureInitialized();
+    final SharedPreferences preferences = await SharedPreferences.getInstance();
+    final MovieApi movieApi = MovieApi(client, preferences);
     final AppEpics epics = AppEpics(movieApi);
 
     final Store<AppState> store = Store<AppState>(

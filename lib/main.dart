@@ -3,6 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:http/http.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_epics/redux_epics.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:teme_flutter/src/actions/index.dart';
 import 'package:teme_flutter/src/data/movie_api.dart';
 import 'package:teme_flutter/src/epics/app_epics.dart';
@@ -13,12 +14,15 @@ import 'package:teme_flutter/src/reducer/reducer.dart';
 
 Future<void> main() async {
   final Client client = Client();
-  final MovieApi movieApi = MovieApi(client);
+  WidgetsFlutterBinding.ensureInitialized();
+  final SharedPreferences preferences = await SharedPreferences.getInstance();
+  final MovieApi movieApi = MovieApi(client, preferences);
   final AppEpics epics = AppEpics(movieApi);
+  final List<int> liked = preferences.getKeys().map((String id) => int.parse(id)).toList();
 
   final Store<AppState> store = Store<AppState>(
     reducer,
-    initialState: const AppState(),
+    initialState: AppState(liked: liked),
     middleware: <Middleware<AppState>>[
       EpicMiddleware<AppState>(epics.epic),
     ],

@@ -3,6 +3,7 @@ part of 'index.dart';
 @freezed
 class Movie with _$Movie {
   const factory Movie({
+    required int id,
     required String title,
     @JsonKey(name: 'medium_cover_image') required String image,
     required List<String> genres,
