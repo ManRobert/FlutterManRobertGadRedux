@@ -23,6 +23,7 @@ mixin _$GetMovies {
     required TResult Function(Object error, StackTrace stackTrace) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int page)? $default, {
@@ -30,6 +31,7 @@ mixin _$GetMovies {
     TResult? Function(Object error, StackTrace stackTrace)? error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int page)? $default, {
@@ -38,6 +40,7 @@ mixin _$GetMovies {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(GetMoviesStart value) $default, {
@@ -45,6 +48,7 @@ mixin _$GetMovies {
     required TResult Function(GetMoviesError value) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(GetMoviesStart value)? $default, {
@@ -52,6 +56,7 @@ mixin _$GetMovies {
     TResult? Function(GetMoviesError value)? error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(GetMoviesStart value)? $default, {
@@ -64,37 +69,33 @@ mixin _$GetMovies {
 
 /// @nodoc
 abstract class $GetMoviesCopyWith<$Res> {
-  factory $GetMoviesCopyWith(GetMovies value, $Res Function(GetMovies) then) =
-      _$GetMoviesCopyWithImpl<$Res, GetMovies>;
+  factory $GetMoviesCopyWith(GetMovies value, $Res Function(GetMovies) then) = _$GetMoviesCopyWithImpl<$Res, GetMovies>;
 }
 
 /// @nodoc
-class _$GetMoviesCopyWithImpl<$Res, $Val extends GetMovies>
-    implements $GetMoviesCopyWith<$Res> {
+class _$GetMoviesCopyWithImpl<$Res, $Val extends GetMovies> implements $GetMoviesCopyWith<$Res> {
   _$GetMoviesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$GetMoviesStartCopyWith<$Res> {
-  factory _$$GetMoviesStartCopyWith(
-          _$GetMoviesStart value, $Res Function(_$GetMoviesStart) then) =
+  factory _$$GetMoviesStartCopyWith(_$GetMoviesStart value, $Res Function(_$GetMoviesStart) then) =
       __$$GetMoviesStartCopyWithImpl<$Res>;
+
   @useResult
   $Res call({int page});
 }
 
 /// @nodoc
-class __$$GetMoviesStartCopyWithImpl<$Res>
-    extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesStart>
+class __$$GetMoviesStartCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesStart>
     implements _$$GetMoviesStartCopyWith<$Res> {
-  __$$GetMoviesStartCopyWithImpl(
-      _$GetMoviesStart _value, $Res Function(_$GetMoviesStart) _then)
-      : super(_value, _then);
+  __$$GetMoviesStartCopyWithImpl(_$GetMoviesStart _value, $Res Function(_$GetMoviesStart) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -213,26 +214,24 @@ abstract class GetMoviesStart implements GetMovies {
   const factory GetMoviesStart(final int page) = _$GetMoviesStart;
 
   int get page;
+
   @JsonKey(ignore: true)
-  _$$GetMoviesStartCopyWith<_$GetMoviesStart> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetMoviesStartCopyWith<_$GetMoviesStart> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GetMoviesSuccessfulCopyWith<$Res> {
-  factory _$$GetMoviesSuccessfulCopyWith(_$GetMoviesSuccessful value,
-          $Res Function(_$GetMoviesSuccessful) then) =
+  factory _$$GetMoviesSuccessfulCopyWith(_$GetMoviesSuccessful value, $Res Function(_$GetMoviesSuccessful) then) =
       __$$GetMoviesSuccessfulCopyWithImpl<$Res>;
+
   @useResult
   $Res call({List<Movie> movies});
 }
 
 /// @nodoc
-class __$$GetMoviesSuccessfulCopyWithImpl<$Res>
-    extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesSuccessful>
+class __$$GetMoviesSuccessfulCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesSuccessful>
     implements _$$GetMoviesSuccessfulCopyWith<$Res> {
-  __$$GetMoviesSuccessfulCopyWithImpl(
-      _$GetMoviesSuccessful _value, $Res Function(_$GetMoviesSuccessful) _then)
+  __$$GetMoviesSuccessfulCopyWithImpl(_$GetMoviesSuccessful _value, $Res Function(_$GetMoviesSuccessful) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -255,6 +254,7 @@ class _$GetMoviesSuccessful implements GetMoviesSuccessful {
   const _$GetMoviesSuccessful(final List<Movie> movies) : _movies = movies;
 
   final List<Movie> _movies;
+
   @override
   List<Movie> get movies {
     if (_movies is EqualUnmodifiableListView) return _movies;
@@ -276,15 +276,13 @@ class _$GetMoviesSuccessful implements GetMoviesSuccessful {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_movies));
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(_movies));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$GetMoviesSuccessfulCopyWith<_$GetMoviesSuccessful> get copyWith =>
-      __$$GetMoviesSuccessfulCopyWithImpl<_$GetMoviesSuccessful>(
-          this, _$identity);
+      __$$GetMoviesSuccessfulCopyWithImpl<_$GetMoviesSuccessful>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -356,31 +354,27 @@ class _$GetMoviesSuccessful implements GetMoviesSuccessful {
 }
 
 abstract class GetMoviesSuccessful implements GetMovies {
-  const factory GetMoviesSuccessful(final List<Movie> movies) =
-      _$GetMoviesSuccessful;
+  const factory GetMoviesSuccessful(final List<Movie> movies) = _$GetMoviesSuccessful;
 
   List<Movie> get movies;
+
   @JsonKey(ignore: true)
-  _$$GetMoviesSuccessfulCopyWith<_$GetMoviesSuccessful> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetMoviesSuccessfulCopyWith<_$GetMoviesSuccessful> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$GetMoviesErrorCopyWith<$Res> {
-  factory _$$GetMoviesErrorCopyWith(
-          _$GetMoviesError value, $Res Function(_$GetMoviesError) then) =
+  factory _$$GetMoviesErrorCopyWith(_$GetMoviesError value, $Res Function(_$GetMoviesError) then) =
       __$$GetMoviesErrorCopyWithImpl<$Res>;
+
   @useResult
   $Res call({Object error, StackTrace stackTrace});
 }
 
 /// @nodoc
-class __$$GetMoviesErrorCopyWithImpl<$Res>
-    extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesError>
+class __$$GetMoviesErrorCopyWithImpl<$Res> extends _$GetMoviesCopyWithImpl<$Res, _$GetMoviesError>
     implements _$$GetMoviesErrorCopyWith<$Res> {
-  __$$GetMoviesErrorCopyWithImpl(
-      _$GetMoviesError _value, $Res Function(_$GetMoviesError) _then)
-      : super(_value, _then);
+  __$$GetMoviesErrorCopyWithImpl(_$GetMoviesError _value, $Res Function(_$GetMoviesError) _then) : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
@@ -419,13 +413,11 @@ class _$GetMoviesError implements GetMoviesError {
         (other.runtimeType == runtimeType &&
             other is _$GetMoviesError &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace));
+            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace);
 
   @JsonKey(ignore: true)
   @override
@@ -503,14 +495,14 @@ class _$GetMoviesError implements GetMoviesError {
 }
 
 abstract class GetMoviesError implements GetMovies {
-  const factory GetMoviesError(
-      final Object error, final StackTrace stackTrace) = _$GetMoviesError;
+  const factory GetMoviesError(final Object error, final StackTrace stackTrace) = _$GetMoviesError;
 
   Object get error;
+
   StackTrace get stackTrace;
+
   @JsonKey(ignore: true)
-  _$$GetMoviesErrorCopyWith<_$GetMoviesError> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GetMoviesErrorCopyWith<_$GetMoviesError> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -518,15 +510,14 @@ mixin _$SetSelectedMovie {
   Movie get movie => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $SetSelectedMovieCopyWith<SetSelectedMovie> get copyWith =>
-      throw _privateConstructorUsedError;
+  $SetSelectedMovieCopyWith<SetSelectedMovie> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $SetSelectedMovieCopyWith<$Res> {
-  factory $SetSelectedMovieCopyWith(
-          SetSelectedMovie value, $Res Function(SetSelectedMovie) then) =
+  factory $SetSelectedMovieCopyWith(SetSelectedMovie value, $Res Function(SetSelectedMovie) then) =
       _$SetSelectedMovieCopyWithImpl<$Res, SetSelectedMovie>;
+
   @useResult
   $Res call({Movie movie});
 
@@ -534,12 +525,12 @@ abstract class $SetSelectedMovieCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SetSelectedMovieCopyWithImpl<$Res, $Val extends SetSelectedMovie>
-    implements $SetSelectedMovieCopyWith<$Res> {
+class _$SetSelectedMovieCopyWithImpl<$Res, $Val extends SetSelectedMovie> implements $SetSelectedMovieCopyWith<$Res> {
   _$SetSelectedMovieCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -566,11 +557,10 @@ class _$SetSelectedMovieCopyWithImpl<$Res, $Val extends SetSelectedMovie>
 }
 
 /// @nodoc
-abstract class _$$SetSelectedMovie$CopyWith<$Res>
-    implements $SetSelectedMovieCopyWith<$Res> {
-  factory _$$SetSelectedMovie$CopyWith(
-          _$SetSelectedMovie$ value, $Res Function(_$SetSelectedMovie$) then) =
+abstract class _$$SetSelectedMovie$CopyWith<$Res> implements $SetSelectedMovieCopyWith<$Res> {
+  factory _$$SetSelectedMovie$CopyWith(_$SetSelectedMovie$ value, $Res Function(_$SetSelectedMovie$) then) =
       __$$SetSelectedMovie$CopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({Movie movie});
@@ -580,11 +570,9 @@ abstract class _$$SetSelectedMovie$CopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SetSelectedMovie$CopyWithImpl<$Res>
-    extends _$SetSelectedMovieCopyWithImpl<$Res, _$SetSelectedMovie$>
+class __$$SetSelectedMovie$CopyWithImpl<$Res> extends _$SetSelectedMovieCopyWithImpl<$Res, _$SetSelectedMovie$>
     implements _$$SetSelectedMovie$CopyWith<$Res> {
-  __$$SetSelectedMovie$CopyWithImpl(
-      _$SetSelectedMovie$ _value, $Res Function(_$SetSelectedMovie$) _then)
+  __$$SetSelectedMovie$CopyWithImpl(_$SetSelectedMovie$ _value, $Res Function(_$SetSelectedMovie$) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -637,10 +625,10 @@ abstract class SetSelectedMovie$ implements SetSelectedMovie {
 
   @override
   Movie get movie;
+
   @override
   @JsonKey(ignore: true)
-  _$$SetSelectedMovie$CopyWith<_$SetSelectedMovie$> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetSelectedMovie$CopyWith<_$SetSelectedMovie$> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -648,36 +636,31 @@ mixin _$WantRefresh {}
 
 /// @nodoc
 abstract class $WantRefreshCopyWith<$Res> {
-  factory $WantRefreshCopyWith(
-          WantRefresh value, $Res Function(WantRefresh) then) =
+  factory $WantRefreshCopyWith(WantRefresh value, $Res Function(WantRefresh) then) =
       _$WantRefreshCopyWithImpl<$Res, WantRefresh>;
 }
 
 /// @nodoc
-class _$WantRefreshCopyWithImpl<$Res, $Val extends WantRefresh>
-    implements $WantRefreshCopyWith<$Res> {
+class _$WantRefreshCopyWithImpl<$Res, $Val extends WantRefresh> implements $WantRefreshCopyWith<$Res> {
   _$WantRefreshCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$WantRefresh$CopyWith<$Res> {
-  factory _$$WantRefresh$CopyWith(
-          _$WantRefresh$ value, $Res Function(_$WantRefresh$) then) =
+  factory _$$WantRefresh$CopyWith(_$WantRefresh$ value, $Res Function(_$WantRefresh$) then) =
       __$$WantRefresh$CopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$WantRefresh$CopyWithImpl<$Res>
-    extends _$WantRefreshCopyWithImpl<$Res, _$WantRefresh$>
+class __$$WantRefresh$CopyWithImpl<$Res> extends _$WantRefreshCopyWithImpl<$Res, _$WantRefresh$>
     implements _$$WantRefresh$CopyWith<$Res> {
-  __$$WantRefresh$CopyWithImpl(
-      _$WantRefresh$ _value, $Res Function(_$WantRefresh$) _then)
-      : super(_value, _then);
+  __$$WantRefresh$CopyWithImpl(_$WantRefresh$ _value, $Res Function(_$WantRefresh$) _then) : super(_value, _then);
 }
 
 /// @nodoc
@@ -692,8 +675,7 @@ class _$WantRefresh$ implements WantRefresh$ {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$WantRefresh$);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$WantRefresh$);
   }
 
   @override
@@ -710,28 +692,27 @@ mixin _$UpdateLike {
   TResult when<TResult extends Object?>(
     TResult Function(int id, bool like) $default, {
     required TResult Function() successful,
-    required TResult Function(
-            Object error, StackTrace stackTrace, int id, bool like)
-        error,
+    required TResult Function(Object error, StackTrace stackTrace, int id, bool like) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int id, bool like)? $default, {
     TResult? Function()? successful,
-    TResult? Function(Object error, StackTrace stackTrace, int id, bool like)?
-        error,
+    TResult? Function(Object error, StackTrace stackTrace, int id, bool like)? error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int id, bool like)? $default, {
     TResult Function()? successful,
-    TResult Function(Object error, StackTrace stackTrace, int id, bool like)?
-        error,
+    TResult Function(Object error, StackTrace stackTrace, int id, bool like)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult map<TResult extends Object?>(
     TResult Function(UpdateLikeStart value) $default, {
@@ -739,6 +720,7 @@ mixin _$UpdateLike {
     required TResult Function(UpdateLikeError value) error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>(
     TResult? Function(UpdateLikeStart value)? $default, {
@@ -746,6 +728,7 @@ mixin _$UpdateLike {
     TResult? Function(UpdateLikeError value)? error,
   }) =>
       throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>(
     TResult Function(UpdateLikeStart value)? $default, {
@@ -758,37 +741,34 @@ mixin _$UpdateLike {
 
 /// @nodoc
 abstract class $UpdateLikeCopyWith<$Res> {
-  factory $UpdateLikeCopyWith(
-          UpdateLike value, $Res Function(UpdateLike) then) =
+  factory $UpdateLikeCopyWith(UpdateLike value, $Res Function(UpdateLike) then) =
       _$UpdateLikeCopyWithImpl<$Res, UpdateLike>;
 }
 
 /// @nodoc
-class _$UpdateLikeCopyWithImpl<$Res, $Val extends UpdateLike>
-    implements $UpdateLikeCopyWith<$Res> {
+class _$UpdateLikeCopyWithImpl<$Res, $Val extends UpdateLike> implements $UpdateLikeCopyWith<$Res> {
   _$UpdateLikeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 }
 
 /// @nodoc
 abstract class _$$UpdateLikeStartCopyWith<$Res> {
-  factory _$$UpdateLikeStartCopyWith(
-          _$UpdateLikeStart value, $Res Function(_$UpdateLikeStart) then) =
+  factory _$$UpdateLikeStartCopyWith(_$UpdateLikeStart value, $Res Function(_$UpdateLikeStart) then) =
       __$$UpdateLikeStartCopyWithImpl<$Res>;
+
   @useResult
   $Res call({int id, bool like});
 }
 
 /// @nodoc
-class __$$UpdateLikeStartCopyWithImpl<$Res>
-    extends _$UpdateLikeCopyWithImpl<$Res, _$UpdateLikeStart>
+class __$$UpdateLikeStartCopyWithImpl<$Res> extends _$UpdateLikeCopyWithImpl<$Res, _$UpdateLikeStart>
     implements _$$UpdateLikeStartCopyWith<$Res> {
-  __$$UpdateLikeStartCopyWithImpl(
-      _$UpdateLikeStart _value, $Res Function(_$UpdateLikeStart) _then)
+  __$$UpdateLikeStartCopyWithImpl(_$UpdateLikeStart _value, $Res Function(_$UpdateLikeStart) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -848,9 +828,7 @@ class _$UpdateLikeStart implements UpdateLikeStart {
   TResult when<TResult extends Object?>(
     TResult Function(int id, bool like) $default, {
     required TResult Function() successful,
-    required TResult Function(
-            Object error, StackTrace stackTrace, int id, bool like)
-        error,
+    required TResult Function(Object error, StackTrace stackTrace, int id, bool like) error,
   }) {
     return $default(id, like);
   }
@@ -860,8 +838,7 @@ class _$UpdateLikeStart implements UpdateLikeStart {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int id, bool like)? $default, {
     TResult? Function()? successful,
-    TResult? Function(Object error, StackTrace stackTrace, int id, bool like)?
-        error,
+    TResult? Function(Object error, StackTrace stackTrace, int id, bool like)? error,
   }) {
     return $default?.call(id, like);
   }
@@ -871,8 +848,7 @@ class _$UpdateLikeStart implements UpdateLikeStart {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int id, bool like)? $default, {
     TResult Function()? successful,
-    TResult Function(Object error, StackTrace stackTrace, int id, bool like)?
-        error,
+    TResult Function(Object error, StackTrace stackTrace, int id, bool like)? error,
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -917,29 +893,26 @@ class _$UpdateLikeStart implements UpdateLikeStart {
 }
 
 abstract class UpdateLikeStart implements UpdateLike {
-  const factory UpdateLikeStart(final int id, {required final bool like}) =
-      _$UpdateLikeStart;
+  const factory UpdateLikeStart(final int id, {required final bool like}) = _$UpdateLikeStart;
 
   int get id;
+
   bool get like;
+
   @JsonKey(ignore: true)
-  _$$UpdateLikeStartCopyWith<_$UpdateLikeStart> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UpdateLikeStartCopyWith<_$UpdateLikeStart> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class _$$UpdateLikeSuccessfulCopyWith<$Res> {
-  factory _$$UpdateLikeSuccessfulCopyWith(_$UpdateLikeSuccessful value,
-          $Res Function(_$UpdateLikeSuccessful) then) =
+  factory _$$UpdateLikeSuccessfulCopyWith(_$UpdateLikeSuccessful value, $Res Function(_$UpdateLikeSuccessful) then) =
       __$$UpdateLikeSuccessfulCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UpdateLikeSuccessfulCopyWithImpl<$Res>
-    extends _$UpdateLikeCopyWithImpl<$Res, _$UpdateLikeSuccessful>
+class __$$UpdateLikeSuccessfulCopyWithImpl<$Res> extends _$UpdateLikeCopyWithImpl<$Res, _$UpdateLikeSuccessful>
     implements _$$UpdateLikeSuccessfulCopyWith<$Res> {
-  __$$UpdateLikeSuccessfulCopyWithImpl(_$UpdateLikeSuccessful _value,
-      $Res Function(_$UpdateLikeSuccessful) _then)
+  __$$UpdateLikeSuccessfulCopyWithImpl(_$UpdateLikeSuccessful _value, $Res Function(_$UpdateLikeSuccessful) _then)
       : super(_value, _then);
 }
 
@@ -955,8 +928,7 @@ class _$UpdateLikeSuccessful implements UpdateLikeSuccessful {
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UpdateLikeSuccessful);
+    return identical(this, other) || (other.runtimeType == runtimeType && other is _$UpdateLikeSuccessful);
   }
 
   @override
@@ -967,9 +939,7 @@ class _$UpdateLikeSuccessful implements UpdateLikeSuccessful {
   TResult when<TResult extends Object?>(
     TResult Function(int id, bool like) $default, {
     required TResult Function() successful,
-    required TResult Function(
-            Object error, StackTrace stackTrace, int id, bool like)
-        error,
+    required TResult Function(Object error, StackTrace stackTrace, int id, bool like) error,
   }) {
     return successful();
   }
@@ -979,8 +949,7 @@ class _$UpdateLikeSuccessful implements UpdateLikeSuccessful {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int id, bool like)? $default, {
     TResult? Function()? successful,
-    TResult? Function(Object error, StackTrace stackTrace, int id, bool like)?
-        error,
+    TResult? Function(Object error, StackTrace stackTrace, int id, bool like)? error,
   }) {
     return successful?.call();
   }
@@ -990,8 +959,7 @@ class _$UpdateLikeSuccessful implements UpdateLikeSuccessful {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int id, bool like)? $default, {
     TResult Function()? successful,
-    TResult Function(Object error, StackTrace stackTrace, int id, bool like)?
-        error,
+    TResult Function(Object error, StackTrace stackTrace, int id, bool like)? error,
     required TResult orElse(),
   }) {
     if (successful != null) {
@@ -1041,19 +1009,17 @@ abstract class UpdateLikeSuccessful implements UpdateLike {
 
 /// @nodoc
 abstract class _$$UpdateLikeErrorCopyWith<$Res> {
-  factory _$$UpdateLikeErrorCopyWith(
-          _$UpdateLikeError value, $Res Function(_$UpdateLikeError) then) =
+  factory _$$UpdateLikeErrorCopyWith(_$UpdateLikeError value, $Res Function(_$UpdateLikeError) then) =
       __$$UpdateLikeErrorCopyWithImpl<$Res>;
+
   @useResult
   $Res call({Object error, StackTrace stackTrace, int id, bool like});
 }
 
 /// @nodoc
-class __$$UpdateLikeErrorCopyWithImpl<$Res>
-    extends _$UpdateLikeCopyWithImpl<$Res, _$UpdateLikeError>
+class __$$UpdateLikeErrorCopyWithImpl<$Res> extends _$UpdateLikeCopyWithImpl<$Res, _$UpdateLikeError>
     implements _$$UpdateLikeErrorCopyWith<$Res> {
-  __$$UpdateLikeErrorCopyWithImpl(
-      _$UpdateLikeError _value, $Res Function(_$UpdateLikeError) _then)
+  __$$UpdateLikeErrorCopyWithImpl(_$UpdateLikeError _value, $Res Function(_$UpdateLikeError) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1085,8 +1051,7 @@ class __$$UpdateLikeErrorCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UpdateLikeError implements UpdateLikeError {
-  const _$UpdateLikeError(this.error, this.stackTrace, this.id,
-      {required this.like});
+  const _$UpdateLikeError(this.error, this.stackTrace, this.id, {required this.like});
 
   @override
   final Object error;
@@ -1108,15 +1073,13 @@ class _$UpdateLikeError implements UpdateLikeError {
         (other.runtimeType == runtimeType &&
             other is _$UpdateLikeError &&
             const DeepCollectionEquality().equals(other.error, error) &&
-            (identical(other.stackTrace, stackTrace) ||
-                other.stackTrace == stackTrace) &&
+            (identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.like, like) || other.like == like));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(error), stackTrace, id, like);
+  int get hashCode => Object.hash(runtimeType, const DeepCollectionEquality().hash(error), stackTrace, id, like);
 
   @JsonKey(ignore: true)
   @override
@@ -1129,9 +1092,7 @@ class _$UpdateLikeError implements UpdateLikeError {
   TResult when<TResult extends Object?>(
     TResult Function(int id, bool like) $default, {
     required TResult Function() successful,
-    required TResult Function(
-            Object error, StackTrace stackTrace, int id, bool like)
-        error,
+    required TResult Function(Object error, StackTrace stackTrace, int id, bool like) error,
   }) {
     return error(this.error, stackTrace, id, like);
   }
@@ -1141,8 +1102,7 @@ class _$UpdateLikeError implements UpdateLikeError {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(int id, bool like)? $default, {
     TResult? Function()? successful,
-    TResult? Function(Object error, StackTrace stackTrace, int id, bool like)?
-        error,
+    TResult? Function(Object error, StackTrace stackTrace, int id, bool like)? error,
   }) {
     return error?.call(this.error, stackTrace, id, like);
   }
@@ -1152,8 +1112,7 @@ class _$UpdateLikeError implements UpdateLikeError {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(int id, bool like)? $default, {
     TResult Function()? successful,
-    TResult Function(Object error, StackTrace stackTrace, int id, bool like)?
-        error,
+    TResult Function(Object error, StackTrace stackTrace, int id, bool like)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -1198,15 +1157,17 @@ class _$UpdateLikeError implements UpdateLikeError {
 }
 
 abstract class UpdateLikeError implements UpdateLike {
-  const factory UpdateLikeError(
-      final Object error, final StackTrace stackTrace, final int id,
+  const factory UpdateLikeError(final Object error, final StackTrace stackTrace, final int id,
       {required final bool like}) = _$UpdateLikeError;
 
   Object get error;
+
   StackTrace get stackTrace;
+
   int get id;
+
   bool get like;
+
   @JsonKey(ignore: true)
-  _$$UpdateLikeErrorCopyWith<_$UpdateLikeError> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UpdateLikeErrorCopyWith<_$UpdateLikeError> get copyWith => throw _privateConstructorUsedError;
 }
